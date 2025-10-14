@@ -19,7 +19,6 @@ typedef struct arena {
 #if defined(DEBUG)
     int total_allocated;
 #endif
-
 } arena;
 
 void arena_init(arena *a, size_t size) {
@@ -100,10 +99,10 @@ int main(int argc, const char *argv[]) {
     pthread_join(thread2, NULL);
 
 #if defined(DEBUG)
-    printf("initialize size: %d\n", a.size);
-    printf("used: %d\n", a.used);
+    printf("initialize size: %zu\n", a.size);
+    printf("used: %zu\n", a.used);
     if (a.used != 0) {
-        printf("free: %d\n", a.size - a.used);
+        printf("free: %zu\n", a.size - a.used);
     }
     printf("total allocated: %d\n", a.total_allocated);
 #endif
